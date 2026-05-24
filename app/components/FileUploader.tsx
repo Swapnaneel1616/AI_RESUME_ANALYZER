@@ -25,12 +25,17 @@ const FileUploader = ({onFileSelect} : FileUploaderProps) => {
                     </div>
 
                     {file?(
-                        <div className="uploader-selected-file">
+                        <div className="uploader-selected-file flex items-center space-x-3">
                             <img src="/images/pdf.png" alt="pdf" className="size-10" />
                             <div className="flex flex-col gap-1">
                                 <p className="font-semibold text-gray-900">{file.name}</p>
                                 <p className="text-sm text-gray-500">{formatSize(file.size)}</p>
                             </div>
+                            <button className="p-2 cursor-pointer" onClick={(e) => {
+                                onFileSelect?.(null)
+                            }} >
+                                <img src="/icons/cross.svg" alt="remove" className="w-4 h-4"/>
+                            </button>
                         </div>
                     ):(
                         <div>
